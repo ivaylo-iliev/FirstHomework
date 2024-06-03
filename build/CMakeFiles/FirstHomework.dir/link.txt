@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/FirstHomework.dir/main.cpp.o -o FirstHomework  objects/libMenu.a objects/libCircle.a tasks/libTask.a tasks/libTask1.a tasks/libTask2.a tasks/libTask3.a tasks/libTask4.a helpers/libUtil.a objects/libMatrix.a tasks/libTask.a objects/libMenu.a objects/libMenuEntry.a helpers/libUtil.a objects/libCircle.a objects/libPoint.a objects/libLineByPointAndAngle.a 

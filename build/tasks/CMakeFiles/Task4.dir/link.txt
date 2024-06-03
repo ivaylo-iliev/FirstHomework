@@ -1,2 +1,0 @@
-/usr/bin/ar qc libTask4.a CMakeFiles/Task4.dir/Task4.cpp.o
-/usr/bin/ranlib libTask4.a
