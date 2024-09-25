@@ -28,5 +28,7 @@ public:
 	static double degrees_to_radians(double degrees);
 	static int greatest_common_divisor(int a, int b);
 	static std::string string_join(const std::vector<std::string>& lst, const std::string& delim);
+	static void clear_screen();
+	static void pause(bool);
 };
 

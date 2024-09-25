@@ -1,5 +1,6 @@
 #include "Task.h"
 #include "Menu.h"
+#include "Util.h"
 #include <iostream>
 #include <limits>
 #include <cstdlib>
@@ -27,6 +28,7 @@ void Task::execute()
 	int choice = 0;
 	do
 	{
+		Util::clear_screen();
 		std::cout << *this->menu;
 		std::cin >> choice;
 
@@ -43,17 +45,25 @@ void Task::execute()
 				break;
 			}
 
+			std::cout << std::endl;
+
 			switch (choice)
 			{
 			case 1:
 				manual_items();
+				Util::pause(true);
+				Util::clear_screen();
 				continue;
 
 			case 2:
 				random_items();
+				Util::pause(true);
+				Util::clear_screen();
 				continue;
 			default :
 				show_invalid_input_message();
+				Util::pause(true);
+				Util::clear_screen();
 				continue;
 			}
 		}

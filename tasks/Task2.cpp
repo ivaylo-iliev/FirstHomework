@@ -1,5 +1,6 @@
 #include "Task2.h"
 #include "Matrix.h"
+#include "Util.h"
 #include <iostream>
 
 void Task2::manual_items()
@@ -18,7 +19,6 @@ void Task2::random_items()
 	matrix2.init_values(true);
 	
 	do_calculations();
-	
 }
 
 void Task2::do_calculations()

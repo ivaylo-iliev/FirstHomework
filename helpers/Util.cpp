@@ -227,3 +227,29 @@ std::string Util::string_join(const std::vector<std::string>& lst, const std::st
 	}
 	return result;
 }
+
+void Util::clear_screen()
+{
+	#if defined _WIN32
+    system("cls");
+		//clrscr(); // including header file : conio.h
+	#elif defined (__LINUX__) || defined(__gnu_linux__) || defined(__linux__)
+		system("clear");
+		//std::cout<< u8"\033[2J\033[1;1H"; //Using ANSI Escape Sequences 
+	#elif defined (__APPLE__)
+		system("clear");
+	#endif
+}
+
+void Util::pause(bool show_message)
+{
+	if(show_message){
+		std::cout << "Press Enter to continue...";
+		std::cout.flush();
+	}
+	#if defined _WIN32 || defined(_WIN64)
+    	system("pause");
+	#elif defined (__LINUX__) || defined(__gnu_linux__) || defined(__linux__) || defined (__APPLE__)
+		system("read");
+	#endif
+}

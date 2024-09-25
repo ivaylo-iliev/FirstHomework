@@ -29,6 +29,7 @@ int main()
 
 	do
 	{
+		Util::clear_screen();
 		Task* task = NULL;
 
 		std::cout << *menu;
@@ -74,7 +75,7 @@ int main()
 				task->execute();
 				continue;
 			case 8:
-				task = new Task8(task_definitions[6]);
+				task = new Task8(task_definitions[7]);
 				task->execute();
 				continue;
 			default:
