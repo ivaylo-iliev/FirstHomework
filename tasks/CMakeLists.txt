@@ -24,3 +24,19 @@ target_include_directories(Task3 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 add_library(Task4 Task4.cpp)
 target_link_libraries(Task4 Task LineByPointAndAngle)
 target_include_directories(Task4 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_library(Task5 Task5.cpp)
+target_link_libraries(Task5 Task SimpleFraction)
+target_include_directories(Task5 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_library(Task6 Task6.cpp)
+target_link_libraries(Task6 Task PointInSpace)
+target_include_directories(Task6 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_library(Task7 Task7.cpp)
+target_link_libraries(Task7 Task Point)
+target_include_directories(Task7 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_library(Task8 Task8.cpp)
+target_link_libraries(Task8 Task Point)
+target_include_directories(Task8 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

@@ -5,12 +5,12 @@
 class Task4 : public Task
 {
 private:
-	LineByPointAndAngle* line;
+	LineByPointAndAngle line;
 
 	void manual_items();
 	void random_items();
 
-	double getIntersectionWithAxis() const;
+	Point calculateIntersection();
 
 
 public:

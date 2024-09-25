@@ -19,17 +19,16 @@ void Matrix::calculate_rank()
 
 void Matrix::calculate_properties()
 {
-	calculate_determinant();
-	//calculate_rank();
-	calculate_max_number_length();
+	this->calculate_determinant();
+	this->calculate_max_number_length();
 }
 
 
 Matrix::Matrix()
 {
-	rows = 2;
-	columns = 2;
-	init_empty_matrix();
+	this->rows = 2;
+	this->columns = 2;
+	this->init_empty_matrix();
 	
 }
 
@@ -75,7 +74,7 @@ void Matrix::set_values()
 	Matrix initMatrix(rows, columns);
 	std::cin >> initMatrix;
 	this->values = initMatrix.values;
-	calculate_properties();
+	this->calculate_properties();
 	
 }
 
@@ -96,7 +95,7 @@ void Matrix::calculate_determinant()
 	if (rows != columns)
 	{
 		// Non-square matrices do not have determinants.
-		this->determinant = 0;
+		this->determinant = NULL;
 		return;
 	}
 
@@ -138,7 +137,7 @@ std::ostream& operator<<(std::ostream& stream, const Matrix& matrix)
 		stream << std::setw(2) << '|' << std::endl;
 	}
 
-	if (matrix.determinant != 0)
+	if (matrix.determinant != NULL)
 	{
 		stream << std::endl << "Determinant: " << matrix.determinant << std::endl;
 	}

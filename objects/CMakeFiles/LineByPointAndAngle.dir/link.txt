@@ -1,0 +1,2 @@
+/usr/bin/ar qc libLineByPointAndAngle.a CMakeFiles/LineByPointAndAngle.dir/LineByPointAndAngle.cpp.o
+/usr/bin/ranlib libLineByPointAndAngle.a

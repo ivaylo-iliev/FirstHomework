@@ -3,6 +3,7 @@
 
 class Point
 {
+protected:
 	double x;
 	double y;
 public:
@@ -17,6 +18,9 @@ public:
 
 	friend std::ostream& operator<<(std::ostream& stream, const Point& point);
 	friend std::istream& operator>>(std::istream& stream, Point& point);
+
+	Point& operator++();
+	Point operator++(int);
 };
 
 

@@ -1,7 +1,6 @@
 #define _USE_MATH_DEFINES
 
 #include "Util.h"
-#include "Circle.h"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -205,7 +204,26 @@ bool Util::point_inside_circle(const Circle& circle, const Point& point)
 	//return euclidean_distance(circle.getCenter(), point) <= circle.getRadius();
 }
 
-double Util::degrees_to_radians(double degrees){
+double Util::degrees_to_radians(double degrees) {
 	return degrees * M_PI / 180.0;
 }
 
+int Util::greatest_common_divisor(int a, int b)
+{
+	if (b == 0) {
+		return a;
+	}
+
+	return greatest_common_divisor(b, a % b);
+}
+
+std::string Util::string_join(const std::vector<std::string>& lst, const std::string& delim)
+{
+	std::string result;
+	for (const auto& s : lst) {
+		if (!result.empty())
+			result += delim;
+		result += s;
+	}
+	return result;
+}

@@ -7,7 +7,6 @@ class LineByPointAndAngle
 private:
 	Point pt;
 	double angle;
-	Point lineTroughPoint;
 
 public:
 	LineByPointAndAngle();
@@ -19,9 +18,9 @@ public:
 	void setAngle(double angle);
 	Point getPoint();
 	double getAngle();
-	double calculateIntersectionWithXAxis();
+	Point calculateIntersectionWithOrdinate();
 
-	LineByPointAndAngle operator*(const std::pair<Point, std::pair<double, double>>& rotationParams);
+	friend LineByPointAndAngle operator*(const LineByPointAndAngle& line, double angle);
 	friend std::ostream& operator<<(std::ostream& stream, const LineByPointAndAngle& line);
 	friend std::istream& operator>>(std::istream& stream, LineByPointAndAngle& line);
 };

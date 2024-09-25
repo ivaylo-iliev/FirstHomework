@@ -1,0 +1,2 @@
+/usr/bin/ar qc libMenuEntry.a CMakeFiles/MenuEntry.dir/MenuEntry.cpp.o
+/usr/bin/ranlib libMenuEntry.a

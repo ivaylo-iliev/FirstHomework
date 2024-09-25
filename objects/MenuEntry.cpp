@@ -1,5 +1,4 @@
 #include "MenuEntry.h"
-#include <iomanip>
 
 void MenuEntry::setIndex(int index)
 {

@@ -3,7 +3,7 @@
 #include "LineByPointAndAngle.h"
 #include <cmath>
 #include <iomanip>
-#include <Util.h>
+#include "Util.h"
 
 LineByPointAndAngle::LineByPointAndAngle()
 {
@@ -47,51 +47,42 @@ double LineByPointAndAngle::getAngle()
 	return this->angle;
 }
 
-double LineByPointAndAngle::calculateIntersectionWithXAxis()
+Point LineByPointAndAngle::calculateIntersectionWithOrdinate()
 {
-	double angleInRadians = Util::degrees_to_radians(angle);
-	if (std::tan(angleInRadians) == 0)
-	{
-		std::cerr << "The line is parallel to the x-axis and does not intersect it." << std::endl;
-		return pt.getX(); // In this case, it intersects at the original point's x value
-	}
-	return pt.getX() - pt.getY() / std::tan(angle);
+	// Convert angle to radians
+	double angleInRadians = this->angle * M_PI / 180.0;
+
+	// Calculate intersection point coordinates
+	double x = this->pt.getX() + cos(angleInRadians);
+	double y = this->pt.getY() + sin(angleInRadians);
+
+	return Point(x, y);
 }
 
-LineByPointAndAngle operator*(const std::pair<std::pair<Point, Point>, std::pair<double, double>>& rotationParams)
+LineByPointAndAngle operator*(const LineByPointAndAngle& line, double rotationAngle)
 {
-	Point originalPoint = rotationParams.first.second;
-	Point rotationPoint = rotationParams.first.second;
-
-	double originalAngle = rotationParams.second.first;
-	double rotationAngle = rotationParams.second.second;;
-
 	double rotationAngleInRadians = Util::degrees_to_radians(rotationAngle);
-	double originalAngleInRadians = Util::degrees_to_radians(originalAngle);
+	double originalAngleInRadians = Util::degrees_to_radians(line.angle);
 
 	double newAngleInRadians = originalAngleInRadians + rotationAngleInRadians;
 
-	double dx = originalPoint.getX() - rotationPoint.getX();
-	double dy = originalPoint.getY() - rotationPoint.getY();
-
-	double cosAngle = std::cos(rotationAngleInRadians);
-	double sinAngle = std::sin(rotationAngleInRadians);
-
-	double newX = rotationPoint.getX() + dx * cosAngle - dy * sinAngle;
-	double newY = rotationPoint.getY() + dx * sinAngle + dy * cosAngle;
-
-	double angleInDegrees = Util::radians_to_degrees(newAngleInRadians);
-	return LineByPointAndAngle(Point(newX, newY), angleInDegrees);
+	double newAngleInDegrees = Util::radians_to_degrees(newAngleInRadians);
+	return LineByPointAndAngle(line.pt, newAngleInDegrees);
 }
 
-std::ostream &operator<<(std::ostream &stream, const LineByPointAndAngle &line)
+std::ostream& operator<<(std::ostream& stream, const LineByPointAndAngle& line)
 {
 	stream << line.pt << std::endl;
-	stream << "Angle with the abscissa : " << std::setprecision(5) << line.angle << std::endl;
+	stream << "Angle with the abscissa : "  << std::setprecision(5) <<  line.angle << std::endl;
 	return stream;
 }
 
-std::istream &operator>>(std::istream &stream, LineByPointAndAngle &line)
+std::istream& operator>>(std::istream& stream, LineByPointAndAngle& line)
 {
+	std::cout << "Enter a point trough the line passes: " << std::endl;
+	stream >> line.pt;
+	std::cout << "Enter the angle with the abscissa: ";
+	stream >> line.angle;
+
 	return stream;
 }
