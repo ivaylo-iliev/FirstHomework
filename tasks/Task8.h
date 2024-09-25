@@ -1,10 +1,10 @@
 #pragma once
 #include "Task.h"
-#include "Point.h"
+#include "Force.h"
 class Task8 : public Task
 {
 private:
-	Point point;
+	Force force;
 
 public:
 	Task8(std::string header_value);

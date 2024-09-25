@@ -38,5 +38,5 @@ target_link_libraries(Task7 Task Point)
 target_include_directories(Task7 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 add_library(Task8 Task8.cpp)
-target_link_libraries(Task8 Task Point)
+target_link_libraries(Task8 Task Force)
 target_include_directories(Task8 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

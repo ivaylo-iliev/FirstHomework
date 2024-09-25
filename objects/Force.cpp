@@ -1,4 +1,5 @@
 #include "Force.h"
+#include <cmath>
 
 Force::Force()
 {
@@ -60,6 +61,14 @@ double Force::getMagnitude()
 	return this->magnitude;
 }
 
+void Force::rotate(double angle)
+{
+	direction += angle;;
+    // Ensure direction stays within 0 to 360 degrees
+    direction = fmod(direction, 360);
+    if (direction < 0) direction += 360;
+}
+
 std::ostream& operator<<(std::ostream& stream, const Force& force)
 {
 	stream << force.applicationPoint << ", direction: " << force.direction << ", magnitude: " << force.magnitude << std::endl;
@@ -75,4 +84,26 @@ std::istream& operator>>(std::istream& stream, Force& force)
 	stream >> force.magnitude;
 
 	return stream;
+}
+
+Force& operator+=(const Force& other) 
+{
+	// Decompose forces into x and y components
+	double rad1 = direction * PI / 180;  // Convert degrees to radians
+	double rad2 = other.direction * PI / 180;  // Convert degrees to radians
+
+	double f1x = magnitude * cos(rad1);
+	double f1y = magnitude * sin(rad1);
+	double f2x = other.magnitude * cos(rad2);
+	double f2y = other.magnitude * sin(rad2);
+
+	// Parallelogram rule: Add components
+	double result_x = f1x + f2x;
+	double result_y = f1y + f2y;
+
+	// Calculate the new magnitude and direction
+	magnitude = sqrt(result_x * result_x + result_y * result_y);
+	direction = atan2(result_y, result_x) * 180 / PI;  // Convert back to degrees
+
+	return *this;
 }

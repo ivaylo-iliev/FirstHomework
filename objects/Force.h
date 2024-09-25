@@ -20,6 +20,8 @@ public:
 	double getDirection();
 	void setMagnitude(double);
 	double getMagnitude();
+	void rotate(double);
+	Force& operator+=(const Force& other);
 
 	friend std::ostream& operator<<(std::ostream& stream, const Force& force);
 	friend std::istream& operator>>(std::istream& stream, Force& force);

@@ -6,7 +6,7 @@
 
 constexpr int MAX_HEADER_WIDTH = 80;
 constexpr int MAX_HEADER_LINE_LENGTH = 60;
-constexpr char HEADER_BORDER_CHAR = '#';
+constexpr char HEADER_BORDER_CHAR = '=';
 constexpr int HEADER_BORDER_WIDTH = 2;
 constexpr int MENU_FORCE_EXIT = 999;
 

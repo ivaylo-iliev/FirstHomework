@@ -35,7 +35,6 @@ const std::vector<MenuEntry> &Menu::getEntries() const
 
 std::ostream& operator<<(std::ostream& stream, const Menu& menu)
 {
-	stream << std::endl;
 	stream << std::setfill(HEADER_BORDER_CHAR);
 	stream << std::setw(MAX_HEADER_WIDTH) << ' ' <<std::endl;
 	stream << std::setfill(' ');
