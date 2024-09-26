@@ -21,8 +21,9 @@ public:
 	void setMagnitude(double);
 	double getMagnitude();
 	void rotate(double);
-	Force& operator+=(const Force& other);
+	Force& operator+=(const Force&);
 
+	friend Force operator+(const Force&, const Force&);
 	friend std::ostream& operator<<(std::ostream& stream, const Force& force);
 	friend std::istream& operator>>(std::istream& stream, Force& force);
 };

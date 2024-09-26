@@ -1,3 +1,5 @@
+#define _USE_MATH_DEFINES
+
 #include "Force.h"
 #include <cmath>
 
@@ -69,6 +71,49 @@ void Force::rotate(double angle)
     if (direction < 0) direction += 360;
 }
 
+Force& Force::operator+=(const Force& rhs)
+{
+	// Decompose forces into x and y components
+	double rad1 = this->direction * M_PI / 180;  // Convert degrees to radians
+	double rad2 = rhs.direction * M_PI / 180;  // Convert degrees to radians
+
+	double f1x = this->magnitude * cos(rad1);
+	double f1y = this->magnitude * sin(rad1);
+	double f2x = rhs.magnitude * cos(rad2);
+	double f2y = rhs.magnitude * sin(rad2);
+
+	// Parallelogram rule: Add components
+	double result_x = f1x + f2x;
+	double result_y = f1y + f2y;
+
+	// Calculate the new magnitude and direction
+	this->magnitude = sqrt(result_x * result_x + result_y * result_y);
+	this->direction = atan2(result_y, result_x) * 180 / M_PI;  // Convert back to degrees
+	return *this;
+}
+
+Force operator+(const Force& lhs, const Force& rhs)
+{
+	// Decompose forces into x and y components
+	double rad1 = lhs.direction * M_PI / 180;  // Convert degrees to radians
+	double rad2 = rhs.direction * M_PI / 180;  // Convert degrees to radians
+
+	double f1x = lhs.magnitude * std::cos(rad1);
+	double f1y = lhs.magnitude * std::sin(rad1);
+	double f2x = rhs.magnitude * std::cos(rad2);
+	double f2y = rhs.magnitude * std::sin(rad2);
+
+	// Parallelogram rule: Add components
+	double result_x = f1x + f2x;
+	double result_y = f1y + f2y;
+
+	// Calculate the new magnitude and direction
+	double new_magnitude = std::sqrt(result_x * result_x + result_y * result_y);
+	double new_direction = std::atan2(result_y, result_x) * 180 / M_PI;  // Convert back to degrees
+
+	return Force(lhs.applicationPoint, new_direction, new_magnitude);
+}
+
 std::ostream& operator<<(std::ostream& stream, const Force& force)
 {
 	stream << force.applicationPoint << ", direction: " << force.direction << ", magnitude: " << force.magnitude << std::endl;
@@ -86,24 +131,24 @@ std::istream& operator>>(std::istream& stream, Force& force)
 	return stream;
 }
 
-Force& operator+=(const Force& other) 
-{
-	// Decompose forces into x and y components
-	double rad1 = direction * PI / 180;  // Convert degrees to radians
-	double rad2 = other.direction * PI / 180;  // Convert degrees to radians
-
-	double f1x = magnitude * cos(rad1);
-	double f1y = magnitude * sin(rad1);
-	double f2x = other.magnitude * cos(rad2);
-	double f2y = other.magnitude * sin(rad2);
-
-	// Parallelogram rule: Add components
-	double result_x = f1x + f2x;
-	double result_y = f1y + f2y;
-
-	// Calculate the new magnitude and direction
-	magnitude = sqrt(result_x * result_x + result_y * result_y);
-	direction = atan2(result_y, result_x) * 180 / PI;  // Convert back to degrees
-
-	return *this;
-}
+//Force& operator+=(const Force& other) 
+//{
+//	// Decompose forces into x and y components
+//	double rad1 = direction * PI / 180;  // Convert degrees to radians
+//	double rad2 = other.direction * PI / 180;  // Convert degrees to radians
+//
+//	double f1x = magnitude * cos(rad1);
+//	double f1y = magnitude * sin(rad1);
+//	double f2x = other.magnitude * cos(rad2);
+//	double f2y = other.magnitude * sin(rad2);
+//
+//	// Parallelogram rule: Add components
+//	double result_x = f1x + f2x;
+//	double result_y = f1y + f2y;
+//
+//	// Calculate the new magnitude and direction
+//	magnitude = sqrt(result_x * result_x + result_y * result_y);
+//	direction = atan2(result_y, result_x) * 180 / PI;  // Convert back to degrees
+//
+//	return *this;
+//}
