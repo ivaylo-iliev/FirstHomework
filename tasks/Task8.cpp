@@ -28,6 +28,6 @@ void Task8::random_items()
 
     Force second_force = Force(Point(Util::random_double(0, 100), Util::random_double(0, 100)), Util::random_double(1, 100), Util::random_double(1, 100));
     std::cout << "Secondary force: " << second_force;
-    Force summary_force = this->force += second_force;
-    std::cout << "Forces sum: " << summary_force << std::endl;
+    //Force summary_force = this->force += second_force;
+    //std::cout << "Forces sum: " << summary_force << std::endl;
 }

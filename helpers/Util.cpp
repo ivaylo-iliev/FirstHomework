@@ -243,13 +243,15 @@ void Util::clear_screen()
 
 void Util::pause(bool show_message)
 {
-	if(show_message){
-		std::cout << "Press Enter to continue...";
-		std::cout.flush();
-	}
+	
 	#if defined _WIN32 || defined(_WIN64)
     	system("pause");
 	#elif defined (__LINUX__) || defined(__gnu_linux__) || defined(__linux__) || defined (__APPLE__)
+		if (show_message) {
+			std::cout << "Press Enter to continue...";
+			std::cout.flush();
+		}
+
 		system("read");
 	#endif
 }
