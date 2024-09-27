@@ -48,10 +48,10 @@ bool Book::operator==(const Book& rhs)
 
 std::ostream& operator<<(std::ostream& stream, const Book& book)
 {
-    // TODO: insert return statement here
+    return stream;
 }
 
 std::istream& operator>>(std::istream& stream, Book& book)
 {
-    // TODO: insert return statement here
+    return stream;
 }
