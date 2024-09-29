@@ -1,8 +1,6 @@
 #pragma once
-#include <iostream>
 #include <vector>
 #include "Circle.h"
-#include "Matrix.h"
 
 class Util
 {
@@ -28,7 +26,12 @@ public:
 	static double degrees_to_radians(double degrees);
 	static int greatest_common_divisor(int a, int b);
 	static std::string string_join(const std::vector<std::string>& lst, const std::string& delim);
+
+	static int get_current_year();
+
 	static void clear_screen();
 	static void pause(bool);
+	static std::string to_lower(const std::string& s);
+	static std::string trim(const std::string& s);
 };
 

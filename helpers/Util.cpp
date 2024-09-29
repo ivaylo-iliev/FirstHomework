@@ -7,6 +7,9 @@
 #include <cmath>
 #include <random>
 #include <climits>
+#include <ctime>
+#include <algorithm>
+#include <cctype>
 
 
 bool Util::choice_is_valid(int choice)
@@ -228,6 +231,13 @@ std::string Util::string_join(const std::vector<std::string>& lst, const std::st
 	return result;
 }
 
+int Util::get_current_year()
+{
+	std::time_t t = std::time(nullptr);
+	std::tm *const pTInfo = std::localtime(&t);
+	return 1900 + pTInfo->tm_year;
+}
+
 void Util::clear_screen()
 {
 	#if defined _WIN32
@@ -254,4 +264,27 @@ void Util::pause(bool show_message)
 
 		system("read");
 	#endif
+}
+
+std::string Util::to_lower(const std::string& s)
+{
+	std::string result = s;
+	std::transform(result.begin(), result.end(), result.begin(),
+				   [](unsigned char c){ return std::tolower(c); });
+	return result;
+}
+
+std::string Util::trim(const std::string& s)
+{
+	auto start = s.begin();
+	while (start != s.end() && std::isspace(*start)) {
+		start++;
+	}
+
+	auto end = s.end();
+	do {
+		end--;
+	} while (std::distance(start, end) > 0 && std::isspace(*end));
+
+	return std::string(start, end + 1);
 }

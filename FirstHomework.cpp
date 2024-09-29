@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 #include <limits>
 
 #include "Util.h"
@@ -14,6 +13,7 @@
 #include "Task6.h"
 #include "Task7.h"
 #include "Task8.h"
+#include "Task9.h"
 
 int main()
 {
@@ -76,6 +76,10 @@ int main()
 				continue;
 			case 8:
 				task = new Task8(task_definitions[7]);
+				task->execute();
+				continue;
+			case 9:
+				task = new Task9(task_definitions[8]);
 				task->execute();
 				continue;
 			default:

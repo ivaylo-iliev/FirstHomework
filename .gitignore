@@ -3,3 +3,4 @@ out/
 CMakeFiles/
 .vs/
 .vscode/
+.cache/

@@ -4,8 +4,8 @@
 
 class Book {
 private:
-	std::string author_namr; 
-	std::string book_title;
+	std::string author_name;
+	std::string title;
 	std::string publisher_name;
 	int publication_year;
 public:
@@ -19,12 +19,11 @@ public:
 	void set_publisher_name(std::string);
 
 	int get_publication_year();
-	void set_publication_yeat(int);
+	void set_publication_year(int);
 
-	bool check_publication_year(int);
+	bool is_published_before(int);
 
-	bool operator==(const Book& rhs);
-
+	friend bool operator==(const Book&, const Book&);
 	friend std::ostream& operator<<(std::ostream& stream, const Book& book);
 	friend std::istream& operator>>(std::istream& stream, Book& book);
 };
