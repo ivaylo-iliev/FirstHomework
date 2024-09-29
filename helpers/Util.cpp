@@ -2,6 +2,7 @@
 
 #include "Util.h"
 #include <iostream>
+#include <sstream>
 #include <fstream>
 #include <string>
 #include <cmath>
@@ -287,4 +288,18 @@ std::string Util::trim(const std::string& s)
 	} while (std::distance(start, end) > 0 && std::isspace(*end));
 
 	return std::string(start, end + 1);
+}
+
+std::vector<std::string> Util::split_string(std::string &value, char delimiter)
+{
+	std::vector<std::string> items;
+	std::stringstream value_stream(value);
+	std::string item;
+
+	while(getline(value_stream, item, delimiter))
+	{
+		items.push_back(item);
+	}
+
+	return items;
 }

@@ -7,7 +7,7 @@ Object: a point in space. Function: the distance from the point to the origin of
 Object: a point in the plane. Function: the distance from the point to the origin of the coordinate system. Operation: increment by 1 (++) moves the point by vector (1,1).
 Object: in-plane force specified with application point, direction, and magnitude. Function: change the direction of the force by turning it through a set angle. Operation: adding (+=) to one force another force by the parallelogram rule.
 Object: book - name of author, title of book, name of publisher and year of publication. Function: returns true if the book was published before the specified year. Operation: comparison for equality (==) of two books.
-Object: student - name, surname and surname, faculty. number, 5 marks. Function: calculate GPA. Operation: comparison (>) by GPA.
+Object: student - first name, middle name and last name, faculty number, 5 marks. Function: calculate GPA. Operation: comparison (>) by GPA.
 Object: a vector in the plane. Function: magnitude of a vector. Operation: multiplication of a vector by a number (*).
 Object: a vector in space. Function: magnitude of a vector. Operation: sum (+) of vectors.
 Object: voter - name, surname and surname, personal identification number, polling station. Function: checking if the person is eligible to vote. Operation: comparison for equality (==).

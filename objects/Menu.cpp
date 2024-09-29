@@ -57,14 +57,16 @@ std::ostream& operator<<(std::ostream& stream, const Menu& menu)
 
 void Menu::set_header(std::string value)
 {
-	std::vector<std::string> headerTokens;
-	std::stringstream headerValue(value);
+	// std::vector<std::string> headerTokens;
+	// std::stringstream headerValue(value);
 
-	std::string token;
-	while(getline(headerValue, token, ' '))
-	{
-		headerTokens.push_back(token);
-	}
+	// std::string token;
+	// while(getline(headerValue, token, ' '))
+	// {
+	// 	headerTokens.push_back(token);
+	// }
+
+	std::vector<std::string> headerTokens = Util::split_string(value, ' ');
 
 	std::vector<std::string> lineTokens;
 	int current_line_size = 0;

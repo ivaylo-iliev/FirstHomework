@@ -24,7 +24,7 @@ add_subdirectory(helpers)
 add_executable(FirstHomework FirstHomework.cpp)
 
 # Link the libraries
-target_link_libraries(FirstHomework faker-cxx Menu Circle Task Task1 Task2 Task3 Task4 Task5 Task6 Task7 Task8 Task9 Util)
+target_link_libraries(FirstHomework faker-cxx Menu Circle Task Task1 Task2 Task3 Task4 Task5 Task6 Task7 Task8 Task9 Task10 Util)
 
 # Copy the task definitions to the build folder
 add_custom_command(

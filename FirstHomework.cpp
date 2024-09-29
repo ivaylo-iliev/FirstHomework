@@ -14,6 +14,7 @@
 #include "Task7.h"
 #include "Task8.h"
 #include "Task9.h"
+#include "Task10.h"
 
 int main()
 {
@@ -80,6 +81,10 @@ int main()
 				continue;
 			case 9:
 				task = new Task9(task_definitions[8]);
+				task->execute();
+				continue;
+			case 10:
+				task = new Task10(task_definitions[9]);
 				task->execute();
 				continue;
 			default:

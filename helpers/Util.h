@@ -33,5 +33,6 @@ public:
 	static void pause(bool);
 	static std::string to_lower(const std::string& s);
 	static std::string trim(const std::string& s);
+	static std::vector<std::string> split_string(std::string &value, char delimiter);
 };
 

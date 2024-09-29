@@ -44,3 +44,7 @@ target_include_directories(Task8 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 add_library(Task9 Task9.cpp)
 target_link_libraries(Task9 Task Book faker-cxx)
 target_include_directories(Task9 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+
+add_library(Task10 Task10.cpp)
+target_link_libraries(Task10 Task Student faker-cxx)
+target_include_directories(Task10 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
