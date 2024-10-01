@@ -8,10 +8,10 @@ private:
 public:
 	Task6(std::string header_value);
 	~Task6();
-	void manual_items();
-	void random_items();
+	void manualItems();
+	void randomItems();
 
-	double calculate_distance_to_start();
+	double calculateDistanceToStart();
 	PointInSpace operator-();
 };
 

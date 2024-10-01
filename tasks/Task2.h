@@ -6,9 +6,9 @@ class Task2 : public Task
 {
 private:
 	Matrix matrix1, matrix2;
-	void manual_items();
-	void random_items();
-	void do_calculations();
+	void manualItems();
+	void randomItems();
+	void doCalculations();
 
 public:
 	Task2(std::string header_value);

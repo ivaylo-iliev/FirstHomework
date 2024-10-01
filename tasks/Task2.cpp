@@ -3,25 +3,25 @@
 #include "Util.h"
 #include <iostream>
 
-void Task2::manual_items()
+void Task2::manualItems()
 {
-	matrix1.init_values(false);
-	matrix2.init_values(false);
-	do_calculations();
+	matrix1.initValues(false);
+	matrix2.initValues(false);
+	doCalculations();
 }
 
-void Task2::random_items()
+void Task2::randomItems()
 {
 	matrix1 = Matrix(2, 2);
-	matrix1.init_values(true);
+	matrix1.initValues(true);
 
 	matrix2 = Matrix(2, 2);
-	matrix2.init_values(true);
+	matrix2.initValues(true);
 	
-	do_calculations();
+	doCalculations();
 }
 
-void Task2::do_calculations()
+void Task2::doCalculations()
 {
 	std::cout << matrix1;
 	std::cout << matrix2;
@@ -32,7 +32,7 @@ void Task2::do_calculations()
 
 Task2::Task2(std::string header_value)
 {
-	this->initialize_menu(header_value);
+	this->initializeMenu(header_value);
 }
 
 Task2::~Task2()

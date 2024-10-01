@@ -23,14 +23,14 @@ int main()
 	std::string header = "There are 26 tasks available. Details will be displayed on task selection. ";
 	header += "Please make selection between 1 and 26. Value of 0 will exit the program.";
 
-	menu->set_header(header);
-	std::vector<std::string> task_definitions = Util::read_task_definitions();
+	menu->setHeader(header);
+	std::vector<std::string> task_definitions = Util::readTaskDefinitions();
 
 	int main_choice = 0;
 
 	do
 	{
-		Util::clear_screen();
+		Util::clearScreen();
 		Task* task = NULL;
 
 		std::cout << *menu;

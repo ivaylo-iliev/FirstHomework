@@ -71,12 +71,12 @@ std::istream& operator>>(std::istream& stream, Circle& circle)
 
 Circle operator+(const Circle& c1, const Circle& c2)
 {
-	double slope = Util::find_line_slope(c1.getCenter(), c2.getCenter());
+	double slope = Util::findLineSlope(c1.getCenter(), c2.getCenter());
 	std::vector<Point> points;
-	points.push_back(Util::calculate_circle_tol_line_intersect_pt(c1.getRadius(), c1.getCenter(), slope));
-	points.push_back(Util::calculate_circle_tol_line_intersect_pt(-c1.getRadius(), c1.getCenter(), slope));
-	points.push_back(Util::calculate_circle_tol_line_intersect_pt(c2.getRadius(), c2.getCenter(), slope));
-	points.push_back(Util::calculate_circle_tol_line_intersect_pt(-c2.getRadius(), c2.getCenter(), slope));
+	points.push_back(Util::calculateCircleToLineIntersect_pt(c1.getRadius(), c1.getCenter(), slope));
+	points.push_back(Util::calculateCircleToLineIntersect_pt(-c1.getRadius(), c1.getCenter(), slope));
+	points.push_back(Util::calculateCircleToLineIntersect_pt(c2.getRadius(), c2.getCenter(), slope));
+	points.push_back(Util::calculateCircleToLineIntersect_pt(-c2.getRadius(), c2.getCenter(), slope));
 
-	return Util::minimum_enclosing_circle(points);
+	return Util::minimumEnclosingCircle(points);
 }

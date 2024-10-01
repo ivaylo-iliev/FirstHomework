@@ -4,14 +4,14 @@
 
 Task7::Task7(std::string header_value)
 {
-	this->initialize_menu(header_value);
+	this->initializeMenu(header_value);
 }
 
 Task7::~Task7()
 {
 }
 
-void Task7::manual_items()
+void Task7::manualItems()
 {
 	std::cin >> point;
 	std::cout << "The distance from the point to the origin is: " << this->calculate_distance_to_start() << std::endl << std::endl;
@@ -23,10 +23,10 @@ void Task7::manual_items()
 	std::cout << "The distance from the point to the origin changed to: " << this->calculate_distance_to_start() << std::endl << std::endl;
 }
 
-void Task7::random_items()
+void Task7::randomItems()
 {
-	point.setX(Util::random_double(0, 100));
-	point.setY(Util::random_double(0, 100));
+	point.setX(Util::randomDouble(0, 100));
+	point.setY(Util::randomDouble(0, 100));
 	std::cout << std::endl << point << std::endl;
 	std::cout << "The distance from the point to the origin is: " << this->calculate_distance_to_start() << std::endl << std::endl;
 	point++;

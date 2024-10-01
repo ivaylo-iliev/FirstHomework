@@ -13,12 +13,12 @@
 #include <cctype>
 
 
-bool Util::choice_is_valid(int choice)
+bool Util::choiceIsValid(int choice)
 {
 	return (choice > 0 && choice < 26) ? true : false;
 }
 
-std::vector<std::string> Util::read_task_definitions()
+std::vector<std::string> Util::readTaskDefinitions()
 {
 	std::vector<std::string> task_definitions;
 	std::fstream data_file;
@@ -36,7 +36,7 @@ std::vector<std::string> Util::read_task_definitions()
 	return task_definitions;
 }
 
-int Util::random_int(int low, int high)
+int Util::randomInt(int low, int high)
 {
 	static std::default_random_engine re{};
 	using distribution = std::uniform_int_distribution<int>;
@@ -44,7 +44,7 @@ int Util::random_int(int low, int high)
 	return uid(re, distribution::param_type{ low, high });
 }
 
-double Util::random_double(double low, double high)
+double Util::randomDouble(double low, double high)
 {
 	static std::default_random_engine re{};
 	using distribution = std::uniform_real_distribution<double>;
@@ -52,7 +52,7 @@ double Util::random_double(double low, double high)
 	return uid(re, distribution::param_type{ low, high });
 }
 
-double Util::find_line_slope(Point p1, Point p2)
+double Util::findLineSlope(Point p1, Point p2)
 {
 	if (p2.getX() - p1.getX() != 0)
 	{
@@ -65,23 +65,23 @@ double Util::find_line_slope(Point p1, Point p2)
 	return INT_MAX;
 }
 
-double Util::find_line_slope_in_degrees(Point p1, Point p2)
+double Util::findLineSlopeInDegrees(Point p1, Point p2)
 {
-	double slope_in_radians = Util::find_line_slope(p1, p2);
-	return Util::find_line_slope_in_degrees(slope_in_radians);
+	double slope_in_radians = Util::findLineSlope(p1, p2);
+	return Util::findLineSlopeInDegrees(slope_in_radians);
 }
 
-double Util::find_line_slope_in_degrees(double slope_in_radians)
+double Util::findLineSlopeInDegrees(double slope_in_radians)
 {
-	return Util::radians_to_degrees(std::atan(slope_in_radians));
+	return Util::radiansToDegrees(std::atan(slope_in_radians));
 }
 
-double Util::radians_to_degrees(double radians)
+double Util::radiansToDegrees(double radians)
 {
 	return radians * (180 / M_PI);
 }
 
-Point Util::calculate_circle_tol_line_intersect_pt(double radius, Point center, double slope_in_radians)
+Point Util::calculateCircleToLineIntersect_pt(double radius, Point center, double slope_in_radians)
 {
 	
 	double x = radius * std::cos(slope_in_radians) + center.getX();
@@ -91,7 +91,7 @@ Point Util::calculate_circle_tol_line_intersect_pt(double radius, Point center, 
 }
 
 // Helper method to get a circle defined by 3 points
-Point Util::get_circle_center(double x1, double y1, double x2, double y2)
+Point Util::getCircleCenter(double x1, double y1, double x2, double y2)
 {
 	double A = std::pow(x1, 2) + std::pow(y1, 2);
 	double B = std::pow(x2, 2) + std::pow(y2, 2);
@@ -103,7 +103,7 @@ Point Util::get_circle_center(double x1, double y1, double x2, double y2)
 }
 
 // Function to return the euclidean distance between two points
-double Util::euclidean_distance(const Point& point1, const Point& point2)
+double Util::euclideanDistance(const Point& point1, const Point& point2)
 {
 	double A = std::pow(point1.getX() - point2.getX(), 2);
 	double B = std::pow(point1.getY() - point2.getY(), 2);
@@ -112,7 +112,7 @@ double Util::euclidean_distance(const Point& point1, const Point& point2)
 }
 
 // Function to return the smallest circle that intersects 2 points
-Circle Util::circle_from(const Point& point1, const Point& point2)
+Circle Util::circleFrom(const Point& point1, const Point& point2)
 {
 	// Set the center to be the midpoint of point1 and point2
 	double x_center = (point1.getX() + point2.getX()) / 2.0;
@@ -120,24 +120,24 @@ Circle Util::circle_from(const Point& point1, const Point& point2)
 	Point center(x_center, y_center);
 
 	// Set the radius to be half the distance between the two points
-	double radius = euclidean_distance(point1, point2) / 2.0;
+	double radius = euclideanDistance(point1, point2) / 2.0;
 	return Circle(center, radius);
 }
 
 // Function to return a unique circle that intersects three points
-Circle Util::circle_from(const Point& point1, const Point& point2, const Point& point3)
+Circle Util::circleFrom(const Point& point1, const Point& point2, const Point& point3)
 {
-	Point center = get_circle_center(point2.getX() - point1.getX(), point2.getY() - point1.getY(), point3.getX() - point1.getX(), point3.getY() - point1.getY());
+	Point center = getCircleCenter(point2.getX() - point1.getX(), point2.getY() - point1.getY(), point3.getX() - point1.getX(), point3.getY() - point1.getY());
 	double x_center = center.getX() + point1.getX();
 	double y_center = center.getY() + point1.getY();
 
 	center.setX(x_center);
 	center.setY(y_center);
 
-	return Circle(center, euclidean_distance(center, point1));
+	return Circle(center, euclideanDistance(center, point1));
 }
 
-Circle Util::minimum_enclosing_circle(const std::vector<Point>& points)
+Circle Util::minimumEnclosingCircle(const std::vector<Point>& points)
 {
 	// Find the number of points
 	int point_count = (int)points.size();
@@ -154,10 +154,10 @@ Circle Util::minimum_enclosing_circle(const std::vector<Point>& points)
 	for (int i = 0; i < point_count; i++) {
 		for (int j = i + 1; j < point_count; j++) {
 			// Get the smallest circle that intersects P[i] and P[j]
-			Circle temp = circle_from(points[i], points[j]);
+			Circle temp = circleFrom(points[i], points[j]);
 
 			// Update the result if the circle encloses all points and has a smaller radius
-			if (temp.getRadius() < result.getRadius() && is_valid_circle(temp, points))
+			if (temp.getRadius() < result.getRadius() && isValidCircle(temp, points))
 			{
 				result = temp;
 			}
@@ -173,10 +173,10 @@ Circle Util::minimum_enclosing_circle(const std::vector<Point>& points)
 			for (int k = j + 1; k < point_count; k++)
 			{
 				// Get the circle that intersects all three points
-				Circle temp = circle_from(points[i], points[j], points[k]);
+				Circle temp = circleFrom(points[i], points[j], points[k]);
 
 				// Update the result if the circle encloses all points and has a smaller radius
-				if (temp.getRadius() < result.getRadius() && is_valid_circle(temp, points))
+				if (temp.getRadius() < result.getRadius() && isValidCircle(temp, points))
 				{
 					result = temp;
 				}
@@ -188,11 +188,11 @@ Circle Util::minimum_enclosing_circle(const std::vector<Point>& points)
 	return result;
 }
 
-bool Util::is_valid_circle(const Circle& circle, const std::vector<Point>& points)
+bool Util::isValidCircle(const Circle& circle, const std::vector<Point>& points)
 {
 	for (const Point& point : points)
 	{
-		if (!point_inside_circle(circle, point))
+		if (!pointInsideCircle(circle, point))
 		{
 			return false;
 		}
@@ -201,27 +201,27 @@ bool Util::is_valid_circle(const Circle& circle, const std::vector<Point>& point
 	return true;
 }
 
-bool Util::point_inside_circle(const Circle& circle, const Point& point)
+bool Util::pointInsideCircle(const Circle& circle, const Point& point)
 {
 	// Due to issue in calculation with double values caused by high percision cast to int
-	return (int) euclidean_distance(circle.getCenter(), point) <= (int) circle.getRadius();
+	return (int) euclideanDistance(circle.getCenter(), point) <= (int) circle.getRadius();
 	//return euclidean_distance(circle.getCenter(), point) <= circle.getRadius();
 }
 
-double Util::degrees_to_radians(double degrees) {
+double Util::degreesToRadians(double degrees) {
 	return degrees * M_PI / 180.0;
 }
 
-int Util::greatest_common_divisor(int a, int b)
+int Util::greatestCommonDivisor(int a, int b)
 {
 	if (b == 0) {
 		return a;
 	}
 
-	return greatest_common_divisor(b, a % b);
+	return greatestCommonDivisor(b, a % b);
 }
 
-std::string Util::string_join(const std::vector<std::string>& lst, const std::string& delim)
+std::string Util::stringJoin(const std::vector<std::string>& lst, const std::string& delim)
 {
 	std::string result;
 	for (const auto& s : lst) {
@@ -232,14 +232,14 @@ std::string Util::string_join(const std::vector<std::string>& lst, const std::st
 	return result;
 }
 
-int Util::get_current_year()
+int Util::getCurrentYear()
 {
 	std::time_t t = std::time(nullptr);
 	std::tm *const pTInfo = std::localtime(&t);
 	return 1900 + pTInfo->tm_year;
 }
 
-void Util::clear_screen()
+void Util::clearScreen()
 {
 	#if defined _WIN32
     system("cls");
@@ -267,7 +267,7 @@ void Util::pause(bool show_message)
 	#endif
 }
 
-std::string Util::to_lower(const std::string& s)
+std::string Util::toLower(const std::string& s)
 {
 	std::string result = s;
 	std::transform(result.begin(), result.end(), result.begin(),
@@ -290,7 +290,7 @@ std::string Util::trim(const std::string& s)
 	return std::string(start, end + 1);
 }
 
-std::vector<std::string> Util::split_string(std::string &value, char delimiter)
+std::vector<std::string> Util::splitString(std::string &value, char delimiter)
 {
 	std::vector<std::string> items;
 	std::stringstream value_stream(value);

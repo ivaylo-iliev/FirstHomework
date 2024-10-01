@@ -8,11 +8,11 @@ class Task3 : public Task
 {
 private:
 	Matrix matrix1, matrix2;
-	void manual_items();
-	void random_items();
+	void manualItems();
+	void randomItems();
 	void gaussianElimination(Matrix& matrix);
-	int calculate_rank(Matrix& matrix);
-	void do_calculations();
+	int calculateRank(Matrix& matrix);
+	void doCalculations();
 
 public:
 	Task3(std::string header_value);

@@ -3,7 +3,7 @@
 #include <iomanip>
 #include <string>
 
-void Matrix::init_empty_matrix()
+void Matrix::initEmptyMatrix()
 {
 	this->values = new int* [rows];
 	for (int i = 0; i < columns; i++)
@@ -12,15 +12,15 @@ void Matrix::init_empty_matrix()
 	}
 }
 
-void Matrix::calculate_rank()
+void Matrix::calculateRank()
 {
 	
 }
 
-void Matrix::calculate_properties()
+void Matrix::calculateProperties()
 {
-	this->calculate_determinant();
-	this->calculate_max_number_length();
+	this->calculateDeterminant();
+	this->calculateMaxNumberLength();
 }
 
 
@@ -28,7 +28,7 @@ Matrix::Matrix()
 {
 	this->rows = 2;
 	this->columns = 2;
-	this->init_empty_matrix();
+	this->initEmptyMatrix();
 	
 }
 
@@ -36,61 +36,61 @@ Matrix::Matrix(int rows, int columns)
 {
 	this->rows = rows;
 	this->columns = columns;	
-	init_empty_matrix();
+	initEmptyMatrix();
 }
 
 Matrix::~Matrix(){}
 
-void Matrix::init_values(bool random)
+void Matrix::initValues(bool random)
 {
 	if (random) 
 	{
-		this->set_random_values(100);
+		this->setRandomValues(100);
 	}
 	else 
 	{
-		this->set_values();
+		this->setValues();
 	}
 	
 }
 
-int Matrix::get_column_count()
+int Matrix::getColumnCount()
 {
 	return this->columns;
 }
 
-int Matrix::get_row_count()
+int Matrix::getRowCount()
 {
 	return this->rows;
 }
 
-int** Matrix::get_matrix_values()
+int** Matrix::getMatrixValues()
 {
 	return this->values;
 }
 
-void Matrix::set_values()
+void Matrix::setValues()
 {
 	Matrix initMatrix(rows, columns);
 	std::cin >> initMatrix;
 	this->values = initMatrix.values;
-	this->calculate_properties();
+	this->calculateProperties();
 	
 }
 
-void Matrix::set_random_values(int maximum_value)
+void Matrix::setRandomValues(int maximum_value)
 {
 	for (int row_iterator = 0; row_iterator < rows; row_iterator++)
 	{
 		for (int col_iterator = 0; col_iterator < columns; col_iterator++)
 		{
-			values[row_iterator][col_iterator] = Util::random_int(0, maximum_value);
-			calculate_properties();
+			values[row_iterator][col_iterator] = Util::randomInt(0, maximum_value);
+			calculateProperties();
 		}
 	}
 }
 
-void Matrix::calculate_determinant()
+void Matrix::calculateDeterminant()
 {
 	if (rows != columns)
 	{
@@ -148,9 +148,9 @@ std::ostream& operator<<(std::ostream& stream, const Matrix& matrix)
 std::istream& operator>>(std::istream& stream, Matrix& matrix)
 {
 	std::cout << "Enter values for the matrix." << std::endl;
-	for (int i = 0; i < matrix.get_row_count(); i++)
+	for (int i = 0; i < matrix.getRowCount(); i++)
 	{
-		for (int j = 0; j < matrix.get_column_count(); j++)
+		for (int j = 0; j < matrix.getColumnCount(); j++)
 		{
 			std::cout << "element[" << i + 1 << "][" << j + 1 << "] = ";
 			stream >> matrix.values[i][j];
@@ -159,7 +159,7 @@ std::istream& operator>>(std::istream& stream, Matrix& matrix)
 	}
 
 	std::cout << matrix << std::endl;
-	matrix.calculate_properties();
+	matrix.calculateProperties();
 
 	return stream;
 }
@@ -179,11 +179,11 @@ Matrix operator+(const Matrix& m1, const Matrix& m2)
 		}
 	}
 
-	result.calculate_properties();
+	result.calculateProperties();
 	return result;
 }
 
-void Matrix::calculate_max_number_length()
+void Matrix::calculateMaxNumberLength()
 {
 	int length = 1;
 	for (int row_iterator = 0; row_iterator < rows; row_iterator++)

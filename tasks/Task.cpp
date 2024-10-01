@@ -15,12 +15,12 @@ Task::~Task()
 	delete menu;
 }
 
-void Task::initialize_menu(std::string header_value)
+void Task::initializeMenu(std::string header_value)
 {
-	menu->set_header(header_value);
-	menu->add_entry("Manual values.");
-	menu->add_entry("Random values.");
-	menu->add_entry("Back to main menu.");
+	menu->setHeader(header_value);
+	menu->addEntry("Manual values.");
+	menu->addEntry("Random values.");
+	menu->addEntry("Back to main menu.");
 }
 
 void Task::execute()
@@ -28,7 +28,7 @@ void Task::execute()
 	int choice = 0;
 	do
 	{
-		Util::clear_screen();
+		Util::clearScreen();
 		std::cout << *this->menu;
 		std::cin >> choice;
 
@@ -36,11 +36,11 @@ void Task::execute()
 		{
 			std::cin.clear();
 			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			show_invalid_input_message();
+			showInvalidInputMessage();
 		}
 		else 
 		{
-			if (choice == menu->get_max_index() -1) 
+			if (choice == menu->getMaxIndex() -1) 
 			{
 				break;
 			}
@@ -50,32 +50,32 @@ void Task::execute()
 			switch (choice)
 			{
 			case 1:
-				manual_items();
+				manualItems();
 				Util::pause(true);
-				Util::clear_screen();
+				Util::clearScreen();
 				continue;
 
 			case 2:
-				random_items();
+				randomItems();
 				Util::pause(true);
-				Util::clear_screen();
+				Util::clearScreen();
 				continue;
 			default :
-				show_invalid_input_message();
+				showInvalidInputMessage();
 				Util::pause(true);
-				Util::clear_screen();
+				Util::clearScreen();
 				continue;
 			}
 		}
 
-	} while (choice != menu->get_max_index()-1);
+	} while (choice != menu->getMaxIndex()-1);
 }
-void Task::manual_items(){}
-void Task::random_items(){}
+void Task::manualItems(){}
+void Task::randomItems(){}
 
-void Task::show_invalid_input_message()
+void Task::showInvalidInputMessage()
 {
-	std::cout << "Invalid input. Please select value between 1 and " << menu->get_max_index() << std::endl;
-	std::cout << menu->get_max_index() << " returns to main menu." << std::endl;
+	std::cout << "Invalid input. Please select value between 1 and " << menu->getMaxIndex() << std::endl;
+	std::cout << menu->getMaxIndex() << " returns to main menu." << std::endl;
 }
 

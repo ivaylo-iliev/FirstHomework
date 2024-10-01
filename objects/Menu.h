@@ -15,15 +15,15 @@ class Menu
 private:
 	std::vector<MenuEntry> menuEntries;
 	std::vector<std::string> headerLines;
-	int max_index;
+	int maxIndex;
 	int choice;
 
 public: 
 	Menu();
 	~Menu();
-	void add_entry(std::string);
+	void addEntry(std::string);
 	const std::vector<MenuEntry> &getEntries() const;
-	void set_header(std::string);
-	int get_max_index();
+	void setHeader(std::string);
+	int getMaxIndex();
 	friend std::ostream& operator<<(std::ostream& stream, const Menu& menu);
 };

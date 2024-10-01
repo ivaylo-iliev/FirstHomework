@@ -9,6 +9,6 @@ private:
 public:
     Task9(std::string header_value);
 	~Task9();
-	void manual_items();
-	void random_items();
+	void manualItems();
+	void randomItems();
 };

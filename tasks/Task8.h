@@ -9,7 +9,7 @@ private:
 public:
 	Task8(std::string header_value);
 	~Task8();
-	void manual_items();
-	void random_items();
+	void manualItems();
+	void randomItems();
 };
 

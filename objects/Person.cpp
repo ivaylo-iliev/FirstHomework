@@ -13,35 +13,35 @@ Person::~Person()
 
 }
 
-std::string Person::get_first_name()
+std::string Person::getFirstName()
 {
     return this->first_name;
 }
 
-void Person::set_first_name(std::string value)
+void Person::setFirstName(std::string value)
 {
     this->first_name = value;
 }
 
-std::string Person::get_middle_name()
+std::string Person::getMiddleName()
 {
     return this->middle_name;
 }
 
-void Person::set_middle_name(std::string value){
+void Person::setMiddleName(std::string value){
     this->middle_name = value;
 }
 
-std::string Person::get_last_name()
+std::string Person::getLastName()
 {
     return this->last_name;
 }
 
-void Person::set_last_name(std::string value){
+void Person::setLastName(std::string value){
     this->last_name = value;
 }
 
-std::string Person::get_full_name()
+std::string Person::getFullName()
 {
     std::string full_name = "";
     if(this->first_name != "")
@@ -62,9 +62,9 @@ std::string Person::get_full_name()
     return full_name;
 }
 
-void Person::set_full_name(std::string value)
+void Person::setFullName(std::string value)
 {
-    std::vector<std::string> split_value = Util::split_string(value, ' ');
+    std::vector<std::string> split_value = Util::splitString(value, ' ');
     switch(split_value.size())
     {
         case 1:
@@ -106,9 +106,9 @@ std::istream& operator>>(std::istream& stream, Person& person)
     std::cout << "Enter last name: ";
     stream >> last_name;
 
-    person.set_first_name(first_name);
-    person.set_middle_name(middle_name);
-    person.set_last_name(last_name);
+    person.setFirstName(first_name);
+    person.setMiddleName(middle_name);
+    person.setLastName(last_name);
 
     return stream;
 }

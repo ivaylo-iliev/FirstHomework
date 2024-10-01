@@ -8,10 +8,10 @@
 
 Task4::Task4(std::string header_value)
 {
-	this->initialize_menu(header_value);
+	this->initializeMenu(header_value);
 }
 
-void Task4::manual_items()
+void Task4::manualItems()
 {
 	std::cin >> line;
 	std::cout << line;
@@ -26,10 +26,10 @@ void Task4::manual_items()
 	std::cout << "Abscissa intersection point is: " << intersectionPoint << std::endl;
 }
 
-void Task4::random_items()
+void Task4::randomItems()
 {
-	Point pt = Point(Util::random_double(0, 100), Util::random_double(0, 100));
-	double angle = Util::random_double(0, 90);
+	Point pt = Point(Util::randomDouble(0, 100), Util::randomDouble(0, 100));
+	double angle = Util::randomDouble(0, 90);
 	line = LineByPointAndAngle(pt, angle);
 
 	std::cout << line;

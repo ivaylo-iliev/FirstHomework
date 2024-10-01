@@ -89,7 +89,7 @@ SimpleFraction operator+(const SimpleFraction& fraction1, const SimpleFraction& 
 	SimpleFraction result;
 	result.numerator = fraction1.numerator * fraction2.denominator + fraction2.numerator * fraction1.denominator;
 	result.denominator = fraction1.denominator * fraction2.denominator;
-	int divisor = Util::greatest_common_divisor(result.numerator, result.denominator);
+	int divisor = Util::greatestCommonDivisor(result.numerator, result.denominator);
 	result.numerator /= divisor;
 	result.denominator /= divisor;
 

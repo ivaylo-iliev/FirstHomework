@@ -2,44 +2,44 @@
 #include "Util.h"
 #include <iomanip>
 
-std::string Book::get_author_name()
+std::string Book::getAuthorName()
 {
-    return this->author_name;
+    return this->authorName;
 }
 
-void Book::set_author_name(std::string value)
+void Book::setAuthorName(std::string value)
 {
-    this->author_name = value;
+    this->authorName = value;
 }
 
-std::string Book::get_book_title()
+std::string Book::getBookTitle()
 {
     return this->title;
 }
 
-void Book::set_book_title(std::string value)
+void Book::setBookTitle(std::string value)
 {
     this->title = value;
 }
 
-std::string Book::get_publisher_name()
+std::string Book::getPublisherName()
 {
-    return this->publisher_name;
+    return this->publisherName;
 }
 
-void Book::set_publisher_name(std::string value)
+void Book::setPublisherName(std::string value)
 {
-    this->publisher_name = value;
+    this->publisherName = value;
 }
 
-int Book::get_publication_year()
+int Book::getPublicationYear()
 {
-    return this->publication_year;
+    return this->publicationYear;
 }
 
-void Book::set_publication_year(int value)
+void Book::setPublicationYear(int value)
 {
-    this->publication_year = value;
+    this->publicationYear = value;
 }
 
 bool operator==(const Book& lhs, const Book& rhs)
@@ -50,22 +50,22 @@ bool operator==(const Book& lhs, const Book& rhs)
     bool publishers_are_equal = false;
     bool publication_years_are_equal = false;
 
-    if(Util::to_lower(Util::trim(rhs.title)) == Util::to_lower(Util::trim(lhs.title)))
+    if(Util::toLower(Util::trim(rhs.title)) == Util::toLower(Util::trim(lhs.title)))
     {
         titles_are_equal = true;
     }
 
-    if(Util::to_lower(Util::trim(rhs.author_name))  == Util::to_lower(Util::trim(lhs.author_name)))
+    if(Util::toLower(Util::trim(rhs.authorName))  == Util::toLower(Util::trim(lhs.authorName)))
     {
         authors_are_equal = true;
     }
 
-    if(Util::to_lower(Util::trim(lhs.publisher_name)) == Util::to_lower(Util::trim(rhs.publisher_name)))
+    if(Util::toLower(Util::trim(lhs.publisherName)) == Util::toLower(Util::trim(rhs.publisherName)))
     {
         publishers_are_equal = true;
     }
 
-    if(lhs.publication_year == rhs.publication_year)
+    if(lhs.publicationYear == rhs.publicationYear)
     {
         publication_years_are_equal = true;
     }
@@ -82,9 +82,9 @@ std::ostream& operator<<(std::ostream& stream, const Book& book)
 {
     int label_column_width = 18;
     stream << std::left << std::setw(label_column_width) << "Title:" << book.title << std::endl;
-    stream << std::left << std::setw(label_column_width) << "Author:" << book.author_name << std::endl;
-    stream << std::left << std::setw(label_column_width) << "Publisher:" << book.publisher_name << std::endl;
-    stream << std::left << std::setw(label_column_width) << "Publication year:" << book.publication_year;
+    stream << std::left << std::setw(label_column_width) << "Author:" << book.authorName << std::endl;
+    stream << std::left << std::setw(label_column_width) << "Publisher:" << book.publisherName << std::endl;
+    stream << std::left << std::setw(label_column_width) << "Publication year:" << book.publicationYear;
     stream << std::right;
     return stream;
 }
@@ -106,15 +106,15 @@ std::istream& operator>>(std::istream& stream, Book& book)
     std::cout << "Enter publication year: ";
     stream >> publication_year;
 
-    book.set_book_title(title);
-    book.set_author_name(author_name);
-    book.set_publisher_name(publisher_name);
-    book.set_publication_year(publication_year);
+    book.setBookTitle(title);
+    book.setAuthorName(author_name);
+    book.setPublisherName(publisher_name);
+    book.setPublicationYear(publication_year);
 
     return stream;
 }
 
-bool Book::is_published_before(int year)
+bool Book::isPublishedBefore(int year)
 {
-    return this->get_publication_year() < year;
+    return this->getPublicationYear() < year;
 }

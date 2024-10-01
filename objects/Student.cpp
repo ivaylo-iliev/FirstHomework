@@ -9,20 +9,20 @@ Student::~Student()
 {
 }
 
-std::string Student::get_faculty_number()
+std::string Student::getFacultyNumber()
 {
-    return this->faculty_number;
+    return this->facultyNumber;
 }
 
-void Student::set_faculty_number(std::string value)
+void Student::setFacultyNumber(std::string value)
 {
-    this->faculty_number = value;
+    this->facultyNumber = value;
 }
 
 std::ostream& operator<<(std::ostream& stream, const Student& student)
 {
     stream << static_cast<const Person&>(student);
-    stream << "Faculty number: " << student.faculty_number << std::endl;
+    stream << "Faculty number: " << student.facultyNumber << std::endl;
     stream << "Grades: [ ";
     for(int i = 0; i < MAX_GRADES_COUNT; i++){
         stream << std::setprecision(5) <<  student.grades[i];
@@ -41,7 +41,7 @@ std::istream& operator>>(std::istream& stream, Student& student)
     stream >> static_cast<Person&>(student);
 
     std::cout << "Enter faculty number: ";
-    stream >> student.faculty_number;
+    stream >> student.facultyNumber;
     
     for(int i = 0; i < MAX_GRADES_COUNT; i++ )
     {
@@ -54,7 +54,7 @@ std::istream& operator>>(std::istream& stream, Student& student)
     return stream;
 }
 
-void Student::calculate_gpa(){
+void Student::calculateGPA(){
     double grades_sum = 0;
     for(int i = 0; i < MAX_GRADES_COUNT; i++){
         grades_sum += this->grades[i];

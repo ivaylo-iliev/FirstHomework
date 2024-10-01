@@ -6,7 +6,7 @@
 
 Menu::Menu()
 {
-	max_index = 1;
+	maxIndex = 1;
 	choice = 0;
 }
 
@@ -15,16 +15,16 @@ Menu::~Menu()
 
 }
 
-void Menu::add_entry(std::string entryName)
+void Menu::addEntry(std::string entryName)
 {
 	MenuEntry entry;
 
-	entry.setIndex(this->max_index);
+	entry.setIndex(this->maxIndex);
 	entry.setLabel(entryName);
 	
 	this->menuEntries.push_back(entry);
 	
-	max_index++;
+	maxIndex++;
 }
 
 const std::vector<MenuEntry> &Menu::getEntries() const
@@ -55,18 +55,9 @@ std::ostream& operator<<(std::ostream& stream, const Menu& menu)
 	return stream;
 }
 
-void Menu::set_header(std::string value)
+void Menu::setHeader(std::string value)
 {
-	// std::vector<std::string> headerTokens;
-	// std::stringstream headerValue(value);
-
-	// std::string token;
-	// while(getline(headerValue, token, ' '))
-	// {
-	// 	headerTokens.push_back(token);
-	// }
-
-	std::vector<std::string> headerTokens = Util::split_string(value, ' ');
+	std::vector<std::string> headerTokens = Util::splitString(value, ' ');
 
 	std::vector<std::string> lineTokens;
 	int current_line_size = 0;
@@ -76,14 +67,14 @@ void Menu::set_header(std::string value)
 		current_line_size += headerTokens[i].length();
 
 		if ((i  < headerTokens.size() -1 && current_line_size + headerTokens[i+1].size() > MAX_HEADER_LINE_LENGTH) || i == headerTokens.size() - 1) {
-			this->headerLines.push_back(Util::string_join(lineTokens, " "));
+			this->headerLines.push_back(Util::stringJoin(lineTokens, " "));
 			lineTokens.clear();
 			current_line_size = 0;
 		}		
 	}
 }
 
-int Menu::get_max_index()
+int Menu::getMaxIndex()
 {
-	return max_index;
+	return maxIndex;
 }

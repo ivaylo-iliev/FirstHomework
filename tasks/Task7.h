@@ -10,8 +10,8 @@ private:
 public:
 	Task7(std::string header_value);
 	~Task7();
-	void manual_items();
-	void random_items();
+	void manualItems();
+	void randomItems();
 
 	double calculate_distance_to_start();
 };

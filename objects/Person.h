@@ -11,14 +11,14 @@ public:
     Person();
     ~Person();
 
-    std::string get_first_name();
-    void set_first_name(std::string);
-    std::string get_middle_name();
-    void set_middle_name(std::string);
-    std::string get_last_name();
-    void set_last_name(std::string);
-    std::string get_full_name();
-    void set_full_name(std::string);
+    std::string getFirstName();
+    void setFirstName(std::string);
+    std::string getMiddleName();
+    void setMiddleName(std::string);
+    std::string getLastName();
+    void setLastName(std::string);
+    std::string getFullName();
+    void setFullName(std::string);
 
     friend std::ostream& operator<<(std::ostream& stream, const Person& person);
 	friend std::istream& operator>>(std::istream& stream, Person& person);

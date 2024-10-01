@@ -2,32 +2,32 @@
 #include "Util.h"
 #include <vector>
 
-void Task3::manual_items()
+void Task3::manualItems()
 {
 	matrix1 = Matrix(2, 3);
 	std::cin >> matrix1;
 	std::cout << matrix1;
 	matrix2 = Matrix(2, 3);
 	std::cin >> matrix2;
-	do_calculations();
+	doCalculations();
 }
 
-void Task3::random_items()
+void Task3::randomItems()
 {
 	matrix1 = Matrix(2, 3);
-	matrix1.init_values(true);
+	matrix1.initValues(true);
 
 	matrix2 = Matrix(2, 3);
-	matrix2.init_values(true);
+	matrix2.initValues(true);
 
-	do_calculations();
+	doCalculations();
 }
 
 
 void Task3::gaussianElimination(Matrix& matrix) {
-	int n = matrix.get_row_count();
-	int m = matrix.get_column_count();
-	int** matrix_values = matrix.get_matrix_values();
+	int n = matrix.getRowCount();
+	int m = matrix.getColumnCount();
+	int** matrix_values = matrix.getMatrixValues();
 
 	for (int i = 0; i < n; i++) {
 		// Find pivot row
@@ -58,14 +58,14 @@ void Task3::gaussianElimination(Matrix& matrix) {
 }
 
 
-int Task3::calculate_rank(Matrix& matrix)
+int Task3::calculateRank(Matrix& matrix)
 {
 	gaussianElimination(matrix);
 	int rank = 0;
-	for (int i = 0; i < matrix.get_row_count(); i++) {
+	for (int i = 0; i < matrix.getRowCount(); i++) {
 		bool isZeroRow = true;
-		for (int j = 0; j < matrix.get_column_count(); j++) {
-			if (matrix.get_matrix_values()[i][j] != 0) {
+		for (int j = 0; j < matrix.getColumnCount(); j++) {
+			if (matrix.getMatrixValues()[i][j] != 0) {
 				isZeroRow = false;
 				break;
 			}
@@ -77,29 +77,29 @@ int Task3::calculate_rank(Matrix& matrix)
 	return rank;
 }
 
-void Task3::do_calculations()
+void Task3::doCalculations()
 {
 	std::cout << matrix1;
-	if (matrix1.get_row_count() != matrix1.get_column_count()) {
-		std::cout << "Rank: " << calculate_rank(matrix1) << std::endl;
+	if (matrix1.getRowCount() != matrix1.getColumnCount()) {
+		std::cout << "Rank: " << calculateRank(matrix1) << std::endl;
 	}
 	
 	std::cout << std::endl << matrix2;
-	if (matrix1.get_row_count() != matrix1.get_column_count()) {
-		std::cout << "Rank: " << calculate_rank(matrix2) << std::endl;
+	if (matrix1.getRowCount() != matrix1.getColumnCount()) {
+		std::cout << "Rank: " << calculateRank(matrix2) << std::endl;
 	}
 
 	std::cout << std::endl << "The sum of the matrices is:" << std::endl;
 	Matrix sum_matrix = matrix1 + matrix2;
 	std::cout << sum_matrix;
-	std::cout << "Rank: " << calculate_rank(sum_matrix) << std::endl;
+	std::cout << "Rank: " << calculateRank(sum_matrix) << std::endl;
 }
 
 
 
 Task3::Task3(std::string header_value)
 {
-	this->initialize_menu(header_value);
+	this->initializeMenu(header_value);
 }
 
 Task3::~Task3()

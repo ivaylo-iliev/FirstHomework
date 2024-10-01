@@ -61,12 +61,12 @@ Point LineByPointAndAngle::calculateIntersectionWithOrdinate()
 
 LineByPointAndAngle operator*(const LineByPointAndAngle& line, double rotationAngle)
 {
-	double rotationAngleInRadians = Util::degrees_to_radians(rotationAngle);
-	double originalAngleInRadians = Util::degrees_to_radians(line.angle);
+	double rotationAngleInRadians = Util::degreesToRadians(rotationAngle);
+	double originalAngleInRadians = Util::degreesToRadians(line.angle);
 
 	double newAngleInRadians = originalAngleInRadians + rotationAngleInRadians;
 
-	double newAngleInDegrees = Util::radians_to_degrees(newAngleInRadians);
+	double newAngleInDegrees = Util::radiansToDegrees(newAngleInRadians);
 	return LineByPointAndAngle(line.pt, newAngleInDegrees);
 }
 

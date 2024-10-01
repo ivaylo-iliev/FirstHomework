@@ -5,42 +5,42 @@
 
 Task1::Task1(std::string header_value)
 {
-	this->initialize_menu(header_value);
+	this->initializeMenu(header_value);
 }
 
-void Task1::manual_items()
+void Task1::manualItems()
 {
 	std::cin >> c1;
 	std::cin >> c2;
 	std::cout << c1 << c2;
-	do_calculations();
+	doCalculations();
 }
 
-void Task1::random_items()
+void Task1::randomItems()
 {
 	Point c1_center;
 	int max_random_value = 100;
-	c1_center.setX(Util::random_double(0, max_random_value));
-	c1_center.setY(Util::random_double(0, max_random_value));
+	c1_center.setX(Util::randomDouble(0, max_random_value));
+	c1_center.setY(Util::randomDouble(0, max_random_value));
 	c1.setCenter(c1_center);
-	c1.setRadius(Util::random_double(0, max_random_value));
+	c1.setRadius(Util::randomDouble(0, max_random_value));
 
 	Point c2_center;
-	c2_center.setX(Util::random_double(0, max_random_value));
-	c2_center.setY(Util::random_double(0, max_random_value));
+	c2_center.setX(Util::randomDouble(0, max_random_value));
+	c2_center.setY(Util::randomDouble(0, max_random_value));
 	c2.setCenter(c2_center);
-	c2.setRadius(Util::random_double(0, max_random_value));
+	c2.setRadius(Util::randomDouble(0, max_random_value));
 
 	std::cout << c1 << c2 << std::endl;
 
-	do_calculations();
+	doCalculations();
 }
 
-void Task1::do_calculations()
+void Task1::doCalculations()
 {
-	double distance = calculate_distance_between_circle_centers(c1, c2);
+	double distance = calculateDistanceBetweenCircleCenters(c1, c2);
 
-	calculate_circle_intersection_points(distance);
+	calculateCircleIntersectionPoints(distance);
 	if ((distance < abs(c1.getRadius() - c2.getRadius())))
 	{
 		if (c1.getRadius() < c2.getRadius())
@@ -60,7 +60,7 @@ void Task1::do_calculations()
 	std::cout << "Minimum enclosing circle: " << minimum_enclosing_circle << std::endl;
 }
 
-void Task1::calculate_circle_intersection_points(double distance_between_circles)
+void Task1::calculateCircleIntersectionPoints(double distance_between_circles)
 {
 	if (distance_between_circles > (c1.getRadius() + c2.getRadius()))
 	{
@@ -119,7 +119,7 @@ void Task1::calculate_circle_intersection_points(double distance_between_circles
 	std::cout << P4 << std::endl;
 }
 
-double Task1::calculate_distance_between_circle_centers(Circle& circle1, Circle& circle2)
+double Task1::calculateDistanceBetweenCircleCenters(Circle& circle1, Circle& circle2)
 {
 	Point center1 = circle1.getCenter();
 	Point center2 = circle2.getCenter();

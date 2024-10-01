@@ -4,9 +4,9 @@
 class Task
 {
 private:
-	virtual void manual_items();
-	virtual void random_items();
-	void show_invalid_input_message();
+	virtual void manualItems();
+	virtual void randomItems();
+	void showInvalidInputMessage();
 
 protected:
 	Menu* menu;
@@ -14,7 +14,7 @@ protected:
 public:
 	Task();
 	~Task();
-	virtual void initialize_menu(std::string header_value);
+	virtual void initializeMenu(std::string header_value);
 	virtual void execute();	
 };
 

@@ -7,8 +7,8 @@ class Task4 : public Task
 private:
 	LineByPointAndAngle line;
 
-	void manual_items();
-	void random_items();
+	void manualItems();
+	void randomItems();
 
 	Point calculateIntersection();
 
