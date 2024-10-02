@@ -4,23 +4,31 @@
 
 void Task3::manualItems()
 {
-	matrix1 = Matrix(2, 3);
-	std::cin >> matrix1;
-	std::cout << matrix1;
-	matrix2 = Matrix(2, 3);
-	std::cin >> matrix2;
-	doCalculations();
+	Matrix* matrix1 = new Matrix(2,3);
+	Matrix* matrix2 = new Matrix(2,3);
+
+	std::cin >> *matrix1;
+	std::cout << *matrix1 << std::endl;
+	std::cin >> *matrix2;
+	std::cout << *matrix2 << std::endl;
+	doCalculations(*matrix1, *matrix2);
+
+	delete matrix1;
+	delete matrix2;
 }
 
 void Task3::randomItems()
 {
-	matrix1 = Matrix(2, 3);
-	matrix1.initValues(true);
+	Matrix* matrix1 = new Matrix(2,3);
+	Matrix* matrix2 = new Matrix(2,3);
+	matrix1->initValues(true);
+	std::cout << *matrix1 << std::endl;
+	matrix2->initValues(true);
+	std::cout << *matrix2 << std::endl;
+	doCalculations(*matrix1, *matrix2);
 
-	matrix2 = Matrix(2, 3);
-	matrix2.initValues(true);
-
-	doCalculations();
+	delete matrix1;
+	delete matrix2;
 }
 
 
@@ -77,14 +85,11 @@ int Task3::calculateRank(Matrix& matrix)
 	return rank;
 }
 
-void Task3::doCalculations()
+void Task3::doCalculations(Matrix& matrix1, Matrix& matrix2)
 {
-	std::cout << matrix1;
 	if (matrix1.getRowCount() != matrix1.getColumnCount()) {
 		std::cout << "Rank: " << calculateRank(matrix1) << std::endl;
 	}
-	
-	std::cout << std::endl << matrix2;
 	if (matrix1.getRowCount() != matrix1.getColumnCount()) {
 		std::cout << "Rank: " << calculateRank(matrix2) << std::endl;
 	}
@@ -97,9 +102,9 @@ void Task3::doCalculations()
 
 
 
-Task3::Task3(std::string header_value)
+Task3::Task3(std::string headerValue)
 {
-	this->initializeMenu(header_value);
+	this->initializeMenu(headerValue);
 }
 
 Task3::~Task3()

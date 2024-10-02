@@ -54,8 +54,7 @@ const double Circle::getRadius() const
 
 std::ostream& operator<<(std::ostream& stream, const Circle& circle)
 {
-	stream << "Center: " << circle.getCenter() << std::endl;
-	stream << std::setprecision(5) << "Radius: " << circle.getRadius() << std::endl;
+	stream << "Center: " << circle.getCenter() << "; " << std::setprecision(5) << "Radius: " << circle.getRadius();
 	return stream;
 }
 

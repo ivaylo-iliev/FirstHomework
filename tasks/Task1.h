@@ -5,15 +5,13 @@
 class Task1 : public Task
 {
 private:
-	Circle c1;
-	Circle c2;
-	
 	void manualItems();
 	void randomItems();
-	void doCalculations();
+	void doCalculations(const Circle& c1, const Circle& c2);
+	void calculateIntersectionPoints(const Circle& c1, const Circle& c2, double distance);
+	static double calculateDistanceBetweenCircleCenters(const Circle& c1, const Circle& c2);
 public:
-	Task1(std::string header_value);
-	void calculateCircleIntersectionPoints(double distanceBetweenCircles);
-	static double calculateDistanceBetweenCircleCenters(Circle& c1, Circle& c2);
+	Task1(std::string headerValue);
+	~Task1();
 };
 

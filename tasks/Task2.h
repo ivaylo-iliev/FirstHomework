@@ -5,13 +5,12 @@
 class Task2 : public Task
 {
 private:
-	Matrix matrix1, matrix2;
 	void manualItems();
 	void randomItems();
-	void doCalculations();
+	void doCalculations(Matrix& matrix1,Matrix& matrix2);
 
 public:
-	Task2(std::string header_value);
+	Task2(std::string headerValue);
 	~Task2();
 };
 

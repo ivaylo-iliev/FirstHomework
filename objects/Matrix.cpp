@@ -56,7 +56,7 @@ void Matrix::initValues(bool random)
 
 int Matrix::getColumnCount()
 {
-	return this->columns;
+	return columns;
 }
 
 int Matrix::getRowCount()
