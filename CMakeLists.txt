@@ -1,11 +1,13 @@
 cmake_minimum_required(VERSION 3.5.0)
 project(FirstHomework VERSION 0.1.0 LANGUAGES C CXX)
 
-if (MSVC)
-    set(CMAKE_REQUIRED_FLAGS /std:c++20)
-else()
-    set(CMAKE_REQUIRED_FLAGS -std=c++20)
-endif()
+#if (MSVC)
+#    set(CMAKE_REQUIRED_FLAGS /std:c++20)
+#else()
+#    set(CMAKE_REQUIRED_FLAGS -std=c++20)
+#endif()
+
+set (CMAKE_CXX_STANDARD 20)
 
 # Project name
 project(FirstHomework)

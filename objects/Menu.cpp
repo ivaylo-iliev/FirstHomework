@@ -60,7 +60,7 @@ void Menu::setHeader(std::string value)
 	std::vector<std::string> headerTokens = Util::splitString(value, ' ');
 
 	std::vector<std::string> lineTokens;
-	int current_line_size = 0;
+	size_t current_line_size = 0;
 	for(int i = 0; i < headerTokens.size(); i++)
 	{
 		lineTokens.push_back(headerTokens[i]);
