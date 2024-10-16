@@ -2,10 +2,10 @@
 #include <string>
 #include <iomanip>
 
-constexpr int INDEX_WIDTH = 3;
-constexpr int SEPARATOR_WIDTH = 1;
-constexpr char SEPARATOR = ' ';
-constexpr char POINT = '.';
+const int INDEX_WIDTH = 3;
+const int SEPARATOR_WIDTH = 1;
+const char SEPARATOR = ' ';
+const char POINT = '.';
 
 class MenuEntry
 {

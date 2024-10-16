@@ -11,6 +11,7 @@
 #include <ctime>
 #include <algorithm>
 #include <cctype>
+#include <ranges>
 
 
 bool Util::choiceIsValid(int choice)
@@ -38,19 +39,20 @@ std::vector<std::string> Util::readTaskDefinitions()
 
 int Util::randomInt(int low, int high)
 {
-	static std::default_random_engine re{};
-	using distribution = std::uniform_int_distribution<int>;
-	static distribution uid{};
-	return uid(re, distribution::param_type{ low, high });
+    static std::random_device rd;        // Random device for seed
+    static std::mt19937 generator(rd()); // Initialize the generator with the seed
+    std::uniform_int_distribution<int> distribution(low, high);
+    return distribution(generator);
 }
 
 double Util::randomDouble(double low, double high)
 {
-	static std::default_random_engine re{};
-	using distribution = std::uniform_real_distribution<double>;
-	static distribution uid{};
-	return uid(re, distribution::param_type{ low, high });
+    static std::random_device rd;         // Random device for seeding
+    static std::mt19937 generator(rd());  // Mersenne Twister generator seeded by rd
+    std::uniform_real_distribution<double> distribution(low, high);
+    return distribution(generator);
 }
+
 
 double Util::findLineSlope(Point p1, Point p2)
 {
@@ -143,7 +145,7 @@ Circle Util::minimumEnclosingCircle(const std::vector<Point>& points)
 	int point_count = (int)points.size();
 
 	if (point_count == 0)
-		return { { 0, 0 }, 0 };
+		return Circle(Point(0,0), 0);
 	if (point_count == 1)
 		return Circle(points[0], 0);
 
@@ -190,9 +192,9 @@ Circle Util::minimumEnclosingCircle(const std::vector<Point>& points)
 
 bool Util::isValidCircle(const Circle& circle, const std::vector<Point>& points)
 {
-	for (const Point& point : points)
+	for (size_t i = 0; i < points.size(); i++)
 	{
-		if (!pointInsideCircle(circle, point))
+		if (!pointInsideCircle(circle, points[i]))
 		{
 			return false;
 		}
@@ -224,10 +226,11 @@ int Util::greatestCommonDivisor(int a, int b)
 std::string Util::stringJoin(const std::vector<std::string>& lst, const std::string& delim)
 {
 	std::string result;
-	for (const auto& s : lst) {
+	for (size_t i = 0; i < lst.size(); i++) 
+	{
 		if (!result.empty())
 			result += delim;
-		result += s;
+		result += lst[i];
 	}
 	return result;
 }
@@ -269,25 +272,26 @@ void Util::pause(bool show_message)
 
 std::string Util::toLower(const std::string& s)
 {
-	std::string result = s;
-	std::transform(result.begin(), result.end(), result.begin(),
-				   [](unsigned char c){ return std::tolower(c); });
-	return result;
+    std::string result = s;
+    std::transform(result.begin(), result.end(), result.begin(),
+                   [](unsigned char c) { return std::tolower(c); });
+    return result;
 }
+
 
 std::string Util::trim(const std::string& s)
 {
-	auto start = s.begin();
-	while (start != s.end() && std::isspace(*start)) {
-		start++;
-	}
+    auto start = s.begin();
+    while (start != s.end() && std::isspace(static_cast<unsigned char>(*start))) {
+        ++start;
+    }
 
-	auto end = s.end();
-	do {
-		end--;
-	} while (std::distance(start, end) > 0 && std::isspace(*end));
+    auto end = s.end();
+    do {
+        --end;
+    } while (end != start && std::isspace(static_cast<unsigned char>(*end)));
 
-	return std::string(start, end + 1);
+    return std::string(start, end + 1);
 }
 
 std::vector<std::string> Util::splitString(std::string &value, char delimiter)

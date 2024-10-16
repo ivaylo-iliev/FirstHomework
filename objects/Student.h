@@ -2,7 +2,7 @@
 #include "Person.h"
 #include <vector>
 
-constexpr int MAX_GRADES_COUNT = 5;
+const int MAX_GRADES_COUNT = 5;
 
 class Student : public Person
 {

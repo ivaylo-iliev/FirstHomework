@@ -4,11 +4,11 @@
 
 #include "MenuEntry.h"
 
-constexpr int MAX_HEADER_WIDTH = 80;
-constexpr int MAX_HEADER_LINE_LENGTH = 60;
-constexpr char HEADER_BORDER_CHAR = '=';
-constexpr int HEADER_BORDER_WIDTH = 2;
-constexpr int MENU_FORCE_EXIT = 999;
+const int MAX_HEADER_WIDTH = 80;
+const int MAX_HEADER_LINE_LENGTH = 60;
+const char HEADER_BORDER_CHAR = '=';
+const int HEADER_BORDER_WIDTH = 2;
+const int MENU_FORCE_EXIT = 999;
 
 class Menu
 {
