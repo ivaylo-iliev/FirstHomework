@@ -61,7 +61,6 @@ int main()
 				break;
 			case 5:
 				task = new Task5(task_definitions[4]);
-				task->execute();
 				break;
 			case 6:
 				task = new Task6(task_definitions[5]);
@@ -82,7 +81,10 @@ int main()
 				break;
 			}
 
-			task->execute();
+			if(task != nullptr)
+			{
+				task->execute();
+			}
 
 			delete task;
 		} 
