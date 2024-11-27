@@ -31,7 +31,7 @@ int main()
 	do
 	{
 		Util::clearScreen();
-		Task* task = NULL;
+		Task* task = nullptr;
 
 		std::cout << *menu;
 		std::cin >> main_choice;
@@ -49,47 +49,40 @@ int main()
 			{
 			case 1:
 				task = new Task1(task_definitions[0]);
-				task->execute();
-				continue;
+				break;
 			case 2:
 				task = new Task2(task_definitions[1]);
-				task->execute();
-				continue;
+				break;
 			case 3:
 				task = new Task3(task_definitions[2]);
-				task->execute();
-				continue;
+				break;
 			case 4:
 				task = new Task4(task_definitions[3]);
-				task->execute();
-				continue;
+				break;
 			case 5:
 				task = new Task5(task_definitions[4]);
 				task->execute();
-				continue;
+				break;
 			case 6:
 				task = new Task6(task_definitions[5]);
-				task->execute();
-				continue;
+				break;
 			case 7:
 				task = new Task7(task_definitions[6]);
-				task->execute();
-				continue;
+				break;
 			case 8:
 				task = new Task8(task_definitions[7]);
-				task->execute();
-				continue;
+				break;
 			case 9:
 				task = new Task9(task_definitions[8]);
-				task->execute();
-				continue;
+				break;
 			case 10:
 				task = new Task10(task_definitions[9]);
-				task->execute();
-				continue;
+				break;
 			default:
 				break;
 			}
+
+			task->execute();
 
 			delete task;
 		} 
