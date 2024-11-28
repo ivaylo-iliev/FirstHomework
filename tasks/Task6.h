@@ -6,7 +6,7 @@ class Task6 : public Task
 private:
 	PointInSpace point;
 public:
-	Task6(std::string header_value);
+	Task6(std::string headerValue);
 	~Task6();
 	void manualItems();
 	void randomItems();

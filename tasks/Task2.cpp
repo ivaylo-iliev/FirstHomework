@@ -38,9 +38,9 @@ void Task2::doCalculations(Matrix& matrix1, Matrix& matrix2)
 	std::cout << sum_matrix;	
 }
 
-Task2::Task2(std::string header_value)
+Task2::Task2(std::string headerValue)
 {
-	this->initializeMenu(header_value);
+	this->initializeMenu(headerValue);
 }
 
 Task2::~Task2()

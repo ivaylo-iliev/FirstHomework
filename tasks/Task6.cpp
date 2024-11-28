@@ -2,9 +2,9 @@
 #include "Util.h"
 #include <cmath>
 
-Task6::Task6(std::string header_value)
+Task6::Task6(std::string headerValue)
 {
-	this->initializeMenu(header_value);
+	this->initializeMenu(headerValue);
 }
 
 Task6::~Task6()

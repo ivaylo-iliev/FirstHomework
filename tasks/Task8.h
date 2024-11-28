@@ -7,7 +7,7 @@ private:
 	Force force;
 
 public:
-	Task8(std::string header_value);
+	Task8(std::string headerValue);
 	~Task8();
 	void manualItems();
 	void randomItems();

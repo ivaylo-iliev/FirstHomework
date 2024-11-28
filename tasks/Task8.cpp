@@ -1,9 +1,9 @@
 #include "Task8.h"
 #include "Util.h"
 
-Task8::Task8(std::string header_value)
+Task8::Task8(std::string headerValue)
 {
-    this->initializeMenu(header_value);
+    this->initializeMenu(headerValue);
 }
 
 Task8::~Task8()

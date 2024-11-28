@@ -5,7 +5,7 @@
 class Task10 : public Task
 {
 public:
-    Task10(std::string header_value);
+    Task10(std::string headerValue);
     ~Task10();
     void manualItems();
 	void randomItems();

@@ -14,7 +14,7 @@ protected:
 public:
 	Task();
 	~Task();
-	virtual void initializeMenu(std::string header_value);
+	virtual void initializeMenu(std::string);
 	virtual void execute();	
 };
 

@@ -15,9 +15,9 @@ Task::~Task()
 	delete menu;
 }
 
-void Task::initializeMenu(std::string header_value)
+void Task::initializeMenu(std::string headerValue)
 {
-	menu->setHeader(header_value);
+	menu->setHeader(headerValue);
 	menu->addEntry("Manual values.");
 	menu->addEntry("Random values.");
 	menu->addEntry("Back to main menu.");
@@ -75,7 +75,8 @@ void Task::randomItems(){}
 
 void Task::showInvalidInputMessage()
 {
-	std::cout << "Invalid input. Please select value between 1 and " << menu->getMaxIndex() << std::endl;
-	std::cout << menu->getMaxIndex() << " returns to main menu." << std::endl;
+	const int maxIndex = menu->getMaxIndex() -1;
+	std::cout << "Invalid input. Please select value between 1 and " << maxIndex << std::endl;
+	std::cout << maxIndex << " returns to main menu." << std::endl;
 }
 

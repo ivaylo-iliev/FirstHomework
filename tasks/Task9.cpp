@@ -2,9 +2,9 @@
 #include "faker-cxx/book.h"
 #include "Util.h"
 
-Task9::Task9(std::string header_value)
+Task9::Task9(std::string headerValue)
 {
-    this->initializeMenu(header_value);
+    this->initializeMenu(headerValue);
 }
 
 Task9::~Task9()

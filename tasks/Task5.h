@@ -7,7 +7,7 @@ class Task5 : public Task
 private:
 	SimpleFraction fraction;
 public:
-	Task5(std::string header_value);
+	Task5(std::string headerValue);
 	~Task5();
 	void manualItems();
 	void randomItems();

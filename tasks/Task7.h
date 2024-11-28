@@ -8,7 +8,7 @@ private:
 	Point point;
 
 public:
-	Task7(std::string header_value);
+	Task7(std::string headerValue);
 	~Task7();
 	void manualItems();
 	void randomItems();

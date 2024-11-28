@@ -34,17 +34,17 @@ void Task1::randomItems()
 	Circle* c1 = new Circle();
 	Circle* c2 = new Circle();
 	Point c1_center;
-	int max_random_value = 100;
-	c1_center.setX(Util::randomDouble(0, max_random_value));
-	c1_center.setY(Util::randomDouble(0, max_random_value));
+	int maxRandomValue = 100;
+	c1_center.setX(Util::randomDouble(0, maxRandomValue));
+	c1_center.setY(Util::randomDouble(0, maxRandomValue));
 	c1->setCenter(c1_center);
-	c1->setRadius(Util::randomDouble(0, max_random_value));
+	c1->setRadius(Util::randomDouble(0, maxRandomValue));
 
 	Point c2_center;
-	c2_center.setX(Util::randomDouble(0, max_random_value));
-	c2_center.setY(Util::randomDouble(0, max_random_value));
+	c2_center.setX(Util::randomDouble(0, maxRandomValue));
+	c2_center.setY(Util::randomDouble(0, maxRandomValue));
 	c2->setCenter(c2_center);
-	c2->setRadius(Util::randomDouble(0, max_random_value));
+	c2->setRadius(Util::randomDouble(0, maxRandomValue));
 
 	std::cout << *c1 << std::endl;
 	std::cout << *c2 << std::endl;
@@ -75,8 +75,8 @@ void Task1::doCalculations(const Circle& c1, const Circle& c2)
 		return;
 	}
 	
-	Circle minimum_enclosing_circle = c1 + c2;
-	std::cout << "Minimum enclosing circle: " << minimum_enclosing_circle << std::endl;
+	Circle minimumEnclosingCircle = c1 + c2;
+	std::cout << "Minimum enclosing circle: " << minimumEnclosingCircle << std::endl;
 }
 
 void Task1::calculateIntersectionPoints(const Circle& c1, const Circle& c2, double distanceBetweenCircles)
