@@ -5,7 +5,7 @@
 class Task4 : public Task
 {
 private:
-	LineByPointAndAngle line;
+	// LineByPointAndAngle line;
 
 	void manualItems();
 	void randomItems();

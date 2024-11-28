@@ -13,17 +13,20 @@ Task4::Task4(std::string header_value)
 
 void Task4::manualItems()
 {
-	std::cin >> line;
+	LineByPointAndAngle *line = new LineByPointAndAngle();
+	std::cin >> *line;
 	std::cout << line;
 	Point intersectionPoint = this->calculateIntersection();
 	std::cout << "Abscissa intersection point before retoation is: " << intersectionPoint << std::endl;
 
 	intersectionPoint = this->calculateIntersection();
 
-	line = line * 90;
+	*line = *line * 90;
 	std::cout << line;
 	intersectionPoint = calculateIntersection();
 	std::cout << "Abscissa intersection point is: " << intersectionPoint << std::endl;
+
+	delete line;
 }
 
 void Task4::randomItems()
