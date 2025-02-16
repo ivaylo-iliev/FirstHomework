@@ -19,7 +19,7 @@ include(FetchContent)
 # Faker is used to generate real looking test data
 FetchContent_Declare(faker
 	GIT_REPOSITORY https://github.com/cieslarmichal/faker-cxx.git
-	GIT_TAG main
+	GIT_TAG v3.0.0
 )
 
 FetchContent_MakeAvailable(faker)
