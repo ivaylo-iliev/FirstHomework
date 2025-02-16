@@ -4,3 +4,4 @@ CMakeFiles/
 .vs/
 .vscode/
 .cache/
+.DS_Store
