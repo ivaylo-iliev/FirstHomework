@@ -3,6 +3,7 @@
 #include "faker-cxx/string.h"
 #include "Util.h"
 #include <cmath>    
+#include <iostream>
 
 Task10::Task10(std::string headerValue)
 {
@@ -17,12 +18,14 @@ void Task10::manualItems()
 {
     std::cout << "Enter details for the first student:" << std::endl;
     Student* student1 = initManualStudent();
+    student1->calculat
 
     std::cout << "Enter details for the second student:" << std::endl;
     Student* student2 = initManualStudent();
 
     std::cout << "First student: " << std::endl;
     std::cout << *student1 << std::endl << std::endl;
+    
 
     std::cout << "Second student: " << std::endl;
     std::cout << *student2 << std::endl << std::endl;
@@ -54,7 +57,7 @@ Student* Task10::initRandomStudent()
     const auto first_name =  faker::person::firstName();
     const auto middle_name = faker::person::lastName();
     const auto last_name = faker::person::lastName();
-    const auto faculty_numer = faker::string::uuid();
+    const auto faculty_numer = faker::string::uuidV1();
 
     Student* student = new Student();
     student->setFirstName({first_name.begin(), first_name.end()});

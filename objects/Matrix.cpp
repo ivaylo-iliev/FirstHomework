@@ -95,7 +95,7 @@ void Matrix::calculateDeterminant()
 	if (rows != columns)
 	{
 		// Non-square matrices do not have determinants.
-		this->determinant = NULL;
+		this->determinant == NULL;
 		return;
 	}
 

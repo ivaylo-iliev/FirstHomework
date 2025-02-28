@@ -1,6 +1,7 @@
 #include "Task7.h"
 #include "Util.h"
 #include <cmath>
+#include <iostream>
 
 Task7::Task7(std::string headerValue)
 {
@@ -14,9 +15,11 @@ Task7::~Task7()
 void Task7::manualItems()
 {
 	Point* point = new Point();
+	
 	std::cin >> *point;
 	std::cout << "The distance from the point to the origin is: " << calculate_distance_to_start(point) << std::endl << std::endl;
 	*point++;
+
 	std::cout << "Postfix incremented by (1,1) coordinates of the point are: " << *point << std::endl;
 	std::cout << "The distance from the point to the origin changed to: " << calculate_distance_to_start(point) << std::endl << std::endl;
 	++*point;

@@ -1,4 +1,5 @@
 cmake_minimum_required(VERSION 3.30.0)
+# Project name
 project(FirstHomework VERSION 0.1.0 LANGUAGES C CXX)
 
 #if (MSVC)
@@ -9,25 +10,16 @@ project(FirstHomework VERSION 0.1.0 LANGUAGES C CXX)
 
 set (CMAKE_CXX_STANDARD 20)
 
-# Project name
-project(FirstHomework)
+
+
 
 set(BUILD_TESTING OFF)
-
-include(FetchContent)
-
-# Faker is used to generate real looking test data
-FetchContent_Declare(faker
-	GIT_REPOSITORY https://github.com/cieslarmichal/faker-cxx.git
-	GIT_TAG v3.0.0
-)
-
-FetchContent_MakeAvailable(faker)
 
 # Add subdirectories
 add_subdirectory(objects)
 add_subdirectory(tasks)
 add_subdirectory(helpers)
+add_subdirectory(externals/faker-cxx)
 
 # Add the executable
 add_executable(FirstHomework FirstHomework.cpp)
